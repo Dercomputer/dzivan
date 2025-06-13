@@ -2,6 +2,7 @@
 #include <fstream>
 #include <ios>
 #include <limits>
+#include <cstring>
 
 using namespace std;
 
@@ -279,31 +280,124 @@ void sort_price(drug *list, int count, int rasmer){
             }
         }
     }
+    f_out.close();
+    cout << "Лекарства отсортированы" << endl;
 }
 
 void price_increase(drug *list, int count){
-    ifstream f;
-
+    ofstream f_out;
+    f_out.open("output_increase.txt");
+    for (int i = 0; i < count; i++){
+        if (list[i].price > list[i].price_history[0]){
+            f_out << "ID: " << list[i].id << "; Название: " << list[i].name << endl;
+        }
+    }
+    f_out.close();
+    cout << "записано в файл output_increase.txt" << endl;
 }
 
 void price_reduction(drug *list, int count){
-
+    ofstream f_out;
+    f_out.open("output_reduction.txt");
+    for (int i = 0; i < count; i++){
+        if (list[i].price < list[i].price_history[0]){
+            f_out << "ID: " << list[i].id << "; Название: " << list[i].name << endl;
+        }
+    }
+    f_out.close();
+    cout << "записано в файл output_reduction.txt" << endl;
 }
 
 void min_price(drug *list, int count){
-
+    ofstream f_out;
+    f_out.open("output_min.txt");
+    double min = list[0].price;
+    for (int i = 1; i < count; i++){
+        if (list[i].price < min) min = list[i].price;
+    }
+    for (int i = 0; i < count; i++){
+        if (list[i].price == min){
+            f_out << "ID: " << list[i].id << endl;
+            f_out << "Название: " << list[i].name << endl;
+            f_out << "Действующее вещество: " << list[i].active_ingredient << endl;
+            f_out << "Производитель: " << list[i].manufacturer << endl;
+            f_out << "Форма: " << list[i].dosage_form << endl;
+            f_out << "Дозировка: " << list[i].strength << endl;
+            f_out << "Единица измерения дозировки: " << list[i].strength_unit << endl;
+            f_out << "Количество в упаковке: " << list[i].quantity_in_pack << endl;
+            f_out << "Цена: " << list[i].price << endl;
+            f_out << "Срок годности: " << list[i].expiry_date << endl;
+            f_out << "Необходимость рецепта: " << list[i].prescription_required << endl;
+            f_out << "Последние 5 стоимостей: ";
+            for (int k = 0; k < 5; k++) {
+                f_out << list[i].price_history[k] << " ";
+            }
+        }
+    }
+    f_out.close();
+    cout << "записано в файл output_min.txt" << endl;
 }
 
 void max_price(drug *list, int count){
-
+    ofstream f_out;
+    f_out.open("output_max.txt");
+    double max = list[0].price;
+    for (int i = 1; i < count; i++){
+        if (list[i].price > max) max = list[i].price;
+    }
+    for (int i = 0; i < count; i++){
+        if (list[i].price == max){
+            f_out << "ID: " << list[i].id << endl;
+            f_out << "Название: " << list[i].name << endl;
+            f_out << "Действующее вещество: " << list[i].active_ingredient << endl;
+            f_out << "Производитель: " << list[i].manufacturer << endl;
+            f_out << "Форма: " << list[i].dosage_form << endl;
+            f_out << "Дозировка: " << list[i].strength << endl;
+            f_out << "Единица измерения дозировки: " << list[i].strength_unit << endl;
+            f_out << "Количество в упаковке: " << list[i].quantity_in_pack << endl;
+            f_out << "Цена: " << list[i].price << endl;
+            f_out << "Срок годности: " << list[i].expiry_date << endl;
+            f_out << "Необходимость рецепта: " << list[i].prescription_required << endl;
+            f_out << "Последние 5 стоимостей: ";
+            for (int k = 0; k < 5; k++) {
+                f_out << list[i].price_history[k] << " ";
+            }
+        }
+    }
+    f_out.close();
+    cout << "записано в файл output_max.txt" << endl;
 }
 
 void date_more(drug *list, int count){
-
+    ofstream f_out;
+    f_out.open("output_date.txt");
+    cout << "Введите дату в формате ГГГГ-ММ-ДД: ";
+    char ind1[11];
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.getline(ind1, 11);
+    for (int i = 0; i < count; i++){
+        if (strcmp(ind1, list[i].expiry_date) <= 0){
+            f_out << "ID: " << list[i].id << "; Название: " << list[i].name << endl;
+        }
+    }
+    f_out.close();
+    cout << "записано в файл output_date.txt" << endl;
 }
 
 void max_min_all_price(drug *list, int count){
-
+    ofstream f_out;
+    f_out.open("output_minmax.txt");
+    for (int i = 0; i < count; i++){
+        double min = list[i].price;
+        double max = list[i].price;
+        for (int k = 0; k < 5; k++){
+            if (min > list[i].price_history[k]) min = list[i].price_history[k];
+            if (max < list[i].price_history[k]) max = list[i].price_history[k];
+        }
+        f_out << "ID: " << list[i].id << "; Максимальная стоимость: " << max << ", минимальная стоимость: " << min << endl;
+    }
+    f_out.close();
+    cout << "записано output_minmax.txt" << endl;
 }
 
 void bubble_sort(drug *list, int count){

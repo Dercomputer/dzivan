@@ -1,0 +1,74 @@
+ID: 3; Название: Aspirin Protect
+ID: 4; Название: Nurofen Express
+ID: 5; Название: Spasmalgon
+ID: 6; Название: Captopril
+ID: 7; Название: L-Thyrox
+ID: 8; Название: Amlodipine
+ID: 9; Название: Claritine
+ID: 10; Название: Hexoral
+ID: 11; Название: Smecta
+ID: 12; Название: Duphalac
+ID: 13; Название: Enterosgel
+ID: 14; Название: Linex Forte
+ID: 15; Название: Espumisan
+ID: 16; Название: No-Spa
+ID: 17; Название: Strepsils
+ID: 18; Название: Coldrex
+ID: 19; Название: TeraFlu
+ID: 20; Название: Pectusin
+ID: 21; Название: Ambrobene
+ID: 22; Название: Nazol Baby
+ID: 23; Название: Rinza
+ID: 24; Название: Xylometazoline
+ID: 25; Название: Pentalgin
+ID: 26; Название: Remens
+ID: 27; Название: Gaviscon
+ID: 28; Название: Omez
+ID: 29; Название: Creon
+ID: 30; Название: Essentiale Forte N
+ID: 32; Название: Curiosin
+ID: 33; Название: Aktovegin
+ID: 34; Название: Solcoseryl
+ID: 35; Название: Betadine
+ID: 36; Название: Bepanten
+ID: 37; Название: Resorcinol
+ID: 38; Название: Miramistin
+ID: 39; Название: Drapolene
+ID: 40; Название: Zinc Ointment
+ID: 41; Название: Chlorhexidine
+ID: 42; Название: Panthenol Spray
+ID: 43; Название: Septolete Plus
+ID: 44; Название: Lizobakt
+ID: 45; Название: Aquamaris Strong
+ID: 46; Название: Tantum Verde
+ID: 47; Название: Faringosept
+ID: 48; Название: Flucostat
+ID: 49; Название: Terbinafine Cream
+ID: 50; Название: Antigrippin
+ID: 51; Название: Dr. Mom
+ID: 52; Название: Aciklovir
+ID: 53; Название: Chloramphenicol
+ID: 54; Название: Dexamethasone
+ID: 55; Название: Tetracycline Ointment
+ID: 56; Название: Levomycetin
+ID: 57; Название: Cefazolin
+ID: 58; Название: Gentamicin
+ID: 59; Название: Polygynax
+ID: 60; Название: Fluconazole
+ID: 61; Название: Nystatin
+ID: 62; Название: Clotrimazole
+ID: 63; Название: Viferon
+ID: 64; Название: Kagocel
+ID: 65; Название: Cycloferon
+ID: 66; Название: Ingavirin
+ID: 67; Название: Anaferon
+ID: 68; Название: Arbidol
+ID: 69; Название: Oscillococcinum
+ID: 70; Название: Grippferon
+ID: 71; Название: Aflubin
+ID: 72; Название: Derinat
+ID: 92; Название: Cardiomagnyl
+ID: 96; Название: Troxevasin
+ID: 97; Название: Lyoton 1000
+ID: 123; Название: Eplan
+ID: 124; Название: Pantenol Aerosol

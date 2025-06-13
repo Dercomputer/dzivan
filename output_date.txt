@@ -1,0 +1,106 @@
+ID: 1; Название: Paracetamol
+ID: 3; Название: Aspirin Protect
+ID: 7; Название: L-Thyrox
+ID: 13; Название: Enterosgel
+ID: 26; Название: Remens
+ID: 28; Название: Omez
+ID: 30; Название: Essentiale Forte N
+ID: 45; Название: Aquamaris Strong
+ID: 66; Название: Ingavirin
+ID: 69; Название: Oscillococcinum
+ID: 76; Название: Glicin
+ID: 78; Название: Mexidol
+ID: 80; Название: Adaptol
+ID: 83; Название: Stresam
+ID: 88; Название: Glycine Forte Evalar
+ID: 92; Название: Cardiomagnyl
+ID: 95; Название: Phlebodia 600
+ID: 99; Название: Kontraktubex
+ID: 104; Название: Cerebrolysin
+ID: 109; Название: Actovegin
+ID: 116; Название: Fastum Gel
+ID: 124; Название: Pantenol Aerosol
+ID: 128; Название: Sinupret
+ID: 138; Название: Ascoril Expectorant
+ID: 143; Название: Tonsipret
+ID: 161; Название: Vaseline
+ID: 169; Название: Okulomistin
+ID: 173; Название: Otipax
+ID: 176; Название: Sofradex
+ID: 183; Название: Dexa-Gentamicin
+ID: 186; Название: Systane Ultra
+ID: 192; Название: Artelac Balance
+ID: 197; Название: Okomistin
+ID: 200; Название: Dexpos
+ID: 205; Название: Stillavit
+ID: 209; Название: Travatan
+ID: 211; Название: Azarga
+ID: 214; Название: Pimafucort
+ID: 220; Название: Exoderil
+ID: 229; Название: Fucidin
+ID: 232; Название: Suprax
+ID: 236; Название: Flemoxin Solutab
+ID: 240; Название: Vilprafen Solutab
+ID: 247; Название: Ofloksin
+ID: 263; Название: Cloxacillin
+ID: 267; Название: Piperacillin
+ID: 271; Название: Cefixime
+ID: 275; Название: Doripenem
+ID: 278; Название: Linezolid
+ID: 285; Название: Pefloxacin
+ID: 289; Название: Delafloxacin
+ID: 292; Название: Fosfomycin/Tobramycin
+ID: 294; Название: Sofosbuvir
+ID: 297; Название: Velpatasvir/Sofosbuvir
+ID: 300; Название: Molnupiravir
+ID: 304; Название: Famciclovir
+ID: 307; Название: Foscarnet
+ID: 312; Название: Peginterferon Alfa-2b
+ID: 314; Название: Tenofovir Disoproxil Fumarate
+ID: 319; Название: Pegasys
+ID: 322; Название: Epclusa
+ID: 325; Название: Viekira Pak
+ID: 329; Название: Daklinza
+ID: 332; Название: Hepsera
+ID: 336; Название: Isentress
+ID: 339; Название: Descovy
+ID: 344; Название: Prezista
+ID: 348; Название: Invirase
+ID: 351; Название: Truvada
+ID: 356; Название: Videx EC
+ID: 360; Название: Fluoxetine
+ID: 363; Название: Escitalopram
+ID: 368; Название: Clomipramine
+ID: 372; Название: Bupropion
+ID: 375; Название: Agomelatine
+ID: 380; Название: Ziprasidone
+ID: 384; Название: Fluphenazine
+ID: 387; Название: Thioridazine
+ID: 392; Название: Brexpiprazole
+ID: 396; Название: Maprotiline
+ID: 399; Название: Phenelzine
+ID: 404; Название: Tolcapone
+ID: 408; Название: Rotigotine
+ID: 411; Название: Biperiden
+ID: 416; Название: Betahistine
+ID: 420; Название: Nicergoline
+ID: 423; Название: Cerebrolysin
+ID: 428; Название: Mildronate
+ID: 432; Название: Adaptol
+ID: 435; Название: Tenoten
+ID: 440; Название: Melaxen
+ID: 444; Название: Corvalol
+ID: 447; Название: Phytosedan
+ID: 452; Название: Paxil
+ID: 456; Название: Wellbutrin
+ID: 459; Название: Brintellix
+ID: 464; Название: Abilify
+ID: 468; Название: Largactil
+ID: 471; Название: Stelazine
+ID: 476; Название: Vraylar
+ID: 480; Название: Asendin
+ID: 483; Название: Vivactil
+ID: 488; Название: Comtan
+ID: 492; Название: Mirapex
+ID: 495; Название: Symmetrel
+ID: 500; Название: Stugeron
