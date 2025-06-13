@@ -406,9 +406,9 @@ void bubble_sort(drug *list, int count){
         end = false;
         for (int i = 0; i < count - 1; i++){
             if (list[i].price > list[i+1].price){
-                double temp = list[i].price;
-                list[i].price = list[i+1].price;
-                list[i+1].price = temp;
+                drug temp = list[i];
+                list[i] = list[i+1];
+                list[i+1] = temp;
                 end = true;
             }
         }
