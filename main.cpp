@@ -3,6 +3,7 @@
 #include <ios>
 #include <limits>
 #include <cstring>
+#include <clocale>
 
 using namespace std;
 
@@ -22,33 +23,34 @@ struct drug {
 };
 
 void menu();
-void create_list(drug *list, int &count);
-void add_drug(drug *list, int rasmer, int &count);
-void remote_drug(drug *list, int count);
-void del_drug(drug *list, int &count);
+void create_list(drug* list, int& count);
+void add_drug(drug* list, int rasmer, int& count);
+void remote_drug(drug* list, int count);
+void del_drug(drug* list, int& count);
 
-void show_drug(drug *list, int count);
-void sort_price(drug *list, int count, int rasmer);
-void price_increase(drug *list, int count);
-void price_reduction(drug *list, int count);
-void min_price(drug *list, int count);
-void max_price(drug *list, int count);
-void date_more(drug *list, int count);
-void max_min_all_price(drug *list, int count);
+void show_drug(drug* list, int count);
+void sort_price(drug* list, int count, int rasmer);
+void price_increase(drug* list, int count);
+void price_reduction(drug* list, int count);
+void min_price(drug* list, int count);
+void max_price(drug* list, int count);
+void date_more(drug* list, int count);
+void max_min_all_price(drug* list, int count);
 
-void bubble_sort(drug *list, int count);
-void update_file(drug *list, int count);
+void bubble_sort(drug* list, int count);
+void update_file(drug* list, int count);
 
-int main(){
+int main() {
+    setlocale(LC_ALL, "Russian");
     menu();
     return 0;
 }
 
-void menu(){
+void menu() {
     const int rasmer = 1500;
     int count = 0;
     drug list[rasmer];
-    while (true){
+    while (true) {
         cout << "Сколько лекарств хранится в таблице: " << count << endl;
         cout << "0: завершение программы" << endl;
         cout << "1: для инициализации базы данных" << endl;
@@ -67,57 +69,58 @@ void menu(){
         cout << "Введите ваш выбор: ";
         int choise;
         cin >> choise;
-        switch (choise){
-            case 0:
-                cout << "Завершение программы" << endl;
-                return;
-            case 1:
-                create_list(list, count);
-                break;
-            case 2:
-                add_drug(list, rasmer, count);
-                break;
-            case 3:
-                remote_drug(list, count);
-                break;
-            case 4:
-                del_drug(list, count);
-                break;
-            case 5:
-                show_drug(list, count);
-                break;
-            case 6:
-                price_increase(list, count);
-                break;
-            case 7:
-                price_reduction(list, count);
-                break;
-            case 8:
-                max_price(list, count);
-                break;
-            case 9:
-                min_price(list, count);
-                break;
-            case 10:
-                date_more(list, count);
-                break;
-            case 11:
-                max_min_all_price(list, count);
-                break;
-            case 12:
-                sort_price(list, count, rasmer);
-                break;
-            default:
-                cout << "Введите одно из предложенных чисел" << endl;
+        switch (choise) {
+        case 0:
+            cout << "Завершение программы" << endl;
+            return;
+        case 1:
+            create_list(list, count);
+            break;
+        case 2:
+            add_drug(list, rasmer, count);
+            break;
+        case 3:
+            remote_drug(list, count);
+            break;
+        case 4:
+            del_drug(list, count);
+            break;
+        case 5:
+            show_drug(list, count);
+            break;
+        case 6:
+            price_increase(list, count);
+            break;
+        case 7:
+            price_reduction(list, count);
+            break;
+        case 8:
+            max_price(list, count);
+            break;
+        case 9:
+            min_price(list, count);
+            break;
+        case 10:
+            date_more(list, count);
+            break;
+        case 11:
+            max_min_all_price(list, count);
+            break;
+        case 12:
+            sort_price(list, count, rasmer);
+            break;
+        default:
+            cout << "Введите одно из предложенных чисел" << endl;
         }
     }
 }
 
-void create_list(drug *list, int &count){
+
+void create_list(drug* list, int& count) {
     ifstream f;
     f.open("input.txt");
     drug trial;
-    while (f.peek() != EOF){
+    while (f.peek() != EOF) {
         f >> trial.id;
         f.ignore(numeric_limits<streamsize>::max(), '\n');
         f.getline(trial.name, 100);
@@ -132,20 +135,20 @@ void create_list(drug *list, int &count){
         f.ignore(numeric_limits<streamsize>::max(), '\n');
         f.getline(trial.expiry_date, 11);
         f >> trial.prescription_required;
-        for(int i = 0; i < 5; i++) f >> trial.price_history[i];
+        for (int i = 0; i < 5; i++) f >> trial.price_history[i];
         list[count] = trial;
         count++;
     }
     f.close();
 }
 
-void add_drug(drug *list, int rasmer, int &count){
-    if (count == rasmer){
+void add_drug(drug* list, int rasmer, int& count) {
+    if (count == rasmer) {
         cout << "Вся база заполнена" << endl;
         return;
     }
     drug new_drug;
-    new_drug.id= list[count-1].id + 1;
+    new_drug.id = list[count - 1].id + 1;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Название: "; cin.getline(new_drug.name, 100);
     cout << "Действующее вещество: "; cin.getline(new_drug.active_ingredient, 100);
@@ -168,11 +171,11 @@ void add_drug(drug *list, int rasmer, int &count){
     cout << endl;
 }
 
-void remote_drug(drug *list, int count){
+void remote_drug(drug* list, int count) {
     cout << "Введите id лекарства, которого надо изменить: ";
     int r_drug; cin >> r_drug;
-    for (int i = 0; i < count; i++){
-        if (list[i].id == r_drug){
+    for (int i = 0; i < count; i++) {
+        if (list[i].id == r_drug) {
             drug new_drug;
             new_drug.id = list[i].id;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -200,33 +203,35 @@ void remote_drug(drug *list, int count){
     cout << endl;
 }
 
-void del_drug(drug *list, int &count){
+
+void del_drug(drug* list, int& count) {
     cout << "Введите id лекарства, которое надо удалить: ";
     int d_drug; cin >> d_drug;
     bool drug_in_list = false;
     int d_del;
-    for (int i = 0; i < count; i++){
-        if (d_drug == list[i].id){
+    for (int i = 0; i < count; i++) {
+        if (d_drug == list[i].id) {
             d_del = i;
             drug_in_list = true;
         }
     }
-    if (drug_in_list){
-        for (int i = d_del; i < count - 1; i++) list[i] = list[i+1];
+    if (drug_in_list) {
+        for (int i = d_del; i < count - 1; i++) list[i] = list[i + 1];
         count--;
         update_file(list, count);
         cout << "Лекарство удалено" << endl;
-    }else{
+    }
+    else {
         cout << "Нет лекарства в базе" << endl;
     }
 }
 
-void show_drug(drug *list, int count){
+void show_drug(drug* list, int count) {
     cout << "Введите id лекарства для вывода информации о нём: ";
     int drug_id;
     cin >> drug_id;
-    for (int i = 0; i < count; i++){
-        if (list[i].id == drug_id){
+    for (int i = 0; i < count; i++) {
+        if (list[i].id == drug_id) {
             ofstream f_out;
             f_out.open("show.txt");
             f_out << "ID: " << list[i].id << endl;
@@ -254,13 +259,13 @@ void show_drug(drug *list, int count){
     cout << "Нет лекарства с таким id" << endl;
 }
 
-void sort_price(drug *list, int count, int rasmer){
+void sort_price(drug* list, int count, const int rasmer) {
     ofstream f_out;
     f_out.open("output_sort.txt");
-    drug lst[rasmer];
+    drug lst[1500];
     for (int i = 0; i < rasmer; i++) lst[i] = list[i];
     bubble_sort(lst, count);
-    for (int i = 0; i < count; i++){
+    for (int i = 0; i < count; i++) {
         f_out << lst[i].id << endl;
         f_out << lst[i].name << endl;
         f_out << lst[i].active_ingredient << endl;
@@ -272,10 +277,11 @@ void sort_price(drug *list, int count, int rasmer){
         f_out << lst[i].price << endl;
         f_out << lst[i].expiry_date << endl;
         f_out << lst[i].prescription_required << endl;
-        for (int j = 0; j < 5; j++){
-            if (i == count - 1 && j == 4){
+        for (int j = 0; j < 5; j++) {
+            if (i == count - 1 && j == 4) {
                 f_out << lst[i].price_history[j];
-            }else{
+            }
+            else {
                 f_out << lst[i].price_history[j] << endl;
             }
         }
@@ -284,11 +290,11 @@ void sort_price(drug *list, int count, int rasmer){
     cout << "Лекарства отсортированы" << endl;
 }
 
-void price_increase(drug *list, int count){
+void price_increase(drug* list, int count) {
     ofstream f_out;
     f_out.open("output_increase.txt");
-    for (int i = 0; i < count; i++){
-        if (list[i].price > list[i].price_history[0]){
+    for (int i = 0; i < count; i++) {
+        if (list[i].price > list[i].price_history[0]) {
             f_out << "ID: " << list[i].id << "; Название: " << list[i].name << endl;
         }
     }
@@ -296,11 +302,11 @@ void price_increase(drug *list, int count){
     cout << "записано в файл output_increase.txt" << endl;
 }
 
-void price_reduction(drug *list, int count){
+void price_reduction(drug* list, int count) {
     ofstream f_out;
     f_out.open("output_reduction.txt");
-    for (int i = 0; i < count; i++){
-        if (list[i].price < list[i].price_history[0]){
+    for (int i = 0; i < count; i++) {
+        if (list[i].price < list[i].price_history[0]) {
             f_out << "ID: " << list[i].id << "; Название: " << list[i].name << endl;
         }
     }
@@ -308,15 +314,16 @@ void price_reduction(drug *list, int count){
     cout << "записано в файл output_reduction.txt" << endl;
 }
 
-void min_price(drug *list, int count){
+
+void min_price(drug* list, int count) {
     ofstream f_out;
     f_out.open("output_min.txt");
     double min = list[0].price;
-    for (int i = 1; i < count; i++){
+    for (int i = 1; i < count; i++) {
         if (list[i].price < min) min = list[i].price;
     }
-    for (int i = 0; i < count; i++){
-        if (list[i].price == min){
+    for (int i = 0; i < count; i++) {
+        if (list[i].price == min) {
             f_out << "ID: " << list[i].id << endl;
             f_out << "Название: " << list[i].name << endl;
             f_out << "Действующее вещество: " << list[i].active_ingredient << endl;
@@ -338,15 +345,15 @@ void min_price(drug *list, int count){
     cout << "записано в файл output_min.txt" << endl;
 }
 
-void max_price(drug *list, int count){
+void max_price(drug* list, int count) {
     ofstream f_out;
     f_out.open("output_max.txt");
     double max = list[0].price;
-    for (int i = 1; i < count; i++){
+    for (int i = 1; i < count; i++) {
         if (list[i].price > max) max = list[i].price;
     }
-    for (int i = 0; i < count; i++){
-        if (list[i].price == max){
+    for (int i = 0; i < count; i++) {
+        if (list[i].price == max) {
             f_out << "ID: " << list[i].id << endl;
             f_out << "Название: " << list[i].name << endl;
             f_out << "Действующее вещество: " << list[i].active_ingredient << endl;
@@ -368,15 +375,15 @@ void max_price(drug *list, int count){
     cout << "записано в файл output_max.txt" << endl;
 }
 
-void date_more(drug *list, int count){
+void date_more(drug* list, int count) {
     ofstream f_out;
     f_out.open("output_date.txt");
     cout << "Введите дату в формате ГГГГ-ММ-ДД: ";
     char ind1[11];
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.getline(ind1, 11);
-    for (int i = 0; i < count; i++){
-        if (strcmp(ind1, list[i].expiry_date) <= 0){
+    for (int i = 0; i < count; i++) {
+        if (strcmp(ind1, list[i].expiry_date) <= 0) {
             f_out << "ID: " << list[i].id << "; Название: " << list[i].name << endl;
         }
     }
@@ -384,13 +391,13 @@ void date_more(drug *list, int count){
     cout << "записано в файл output_date.txt" << endl;
 }
 
-void max_min_all_price(drug *list, int count){
+void max_min_all_price(drug* list, int count) {
     ofstream f_out;
     f_out.open("output_minmax.txt");
-    for (int i = 0; i < count; i++){
+    for (int i = 0; i < count; i++) {
         double min = list[i].price;
         double max = list[i].price;
-        for (int k = 0; k < 5; k++){
+        for (int k = 0; k < 5; k++) {
             if (min > list[i].price_history[k]) min = list[i].price_history[k];
             if (max < list[i].price_history[k]) max = list[i].price_history[k];
         }
@@ -400,25 +407,26 @@ void max_min_all_price(drug *list, int count){
     cout << "записано output_minmax.txt" << endl;
 }
 
-void bubble_sort(drug *list, int count){
+
+void bubble_sort(drug* list, int count) {
     bool end;
     do {
         end = false;
-        for (int i = 0; i < count - 1; i++){
-            if (list[i].price > list[i+1].price){
+        for (int i = 0; i < count - 1; i++) {
+            if (list[i].price > list[i + 1].price) {
                 drug temp = list[i];
-                list[i] = list[i+1];
-                list[i+1] = temp;
+                list[i] = list[i + 1];
+                list[i + 1] = temp;
                 end = true;
             }
         }
     } while (end);
 }
 
-void update_file(drug *list, int count){
+void update_file(drug* list, int count) {
     ofstream f_out;
     f_out.open("input.txt");
-    for (int i = 0; i < count; i++){
+    for (int i = 0; i < count; i++) {
         f_out << list[i].id << endl;
         f_out << list[i].name << endl;
         f_out << list[i].active_ingredient << endl;
@@ -430,10 +438,11 @@ void update_file(drug *list, int count){
         f_out << list[i].price << endl;
         f_out << list[i].expiry_date << endl;
         f_out << list[i].prescription_required << endl;
-        for (int j = 0; j < 5; j++){
-            if (i == count - 1 && j == 4){
+        for (int j = 0; j < 5; j++) {
+            if (i == count - 1 && j == 4) {
                 f_out << list[i].price_history[j];
-            }else{
+            }
+            else {
                 f_out << list[i].price_history[j] << endl;
             }
         }
