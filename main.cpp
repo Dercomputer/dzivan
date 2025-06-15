@@ -5,6 +5,7 @@
 #include <cstring>
 #include <clocale>
 
+
 using namespace std;
 
 struct drug {
@@ -42,6 +43,7 @@ void update_file(drug* list, int count);
 
 int main() {
     setlocale(LC_ALL, "Russian");
+    system("chcp 866 > nul");
     menu();
     return 0;
 }
